@@ -1,15 +1,17 @@
 
 # Born-Again Tree Ensembles
 
-This repository contains the source code and data associated to the paper "Born Again Tree Ensembles", by Thibaut Vidal and Maximilian Schiffer, also counting with the significant contribution of Toni Pacheco (during the paper submission and revision period). This paper has been presented at the 37th International Conference on Machine Learning (ICML 2020).
+This repository contains the source code and data associated to the paper "Born Again Tree Ensembles", by Thibaut Vidal and Maximilian Schiffer, with the help of Toni Pacheco who contributed during the paper submission and revision period. This paper has been presented at the 37th International Conference on Machine Learning (ICML 2020).
 
 ## Test Environment
 
-This code has been tested on Ubuntu 18.04 using GCC compiler for the C++ algorithm, as well as on Windows 10 using MinGW for compilation. We used Anaconda distribution with Python 3.7 for all other codes and scripts. We recommend to use a similar configuration to avoid any possible compilation issue.
+This code has been tested on Ubuntu 18.04 using GCC compiler v9.2.0 for the C++ algorithm, as well as on Windows 10 using MinGW or Visual Studio 2017 for compilation. 
+We used Anaconda distribution with Python 3.7 for all other codes and scripts.
+We recommend using a similar configuration to avoid any possible compilation issue.
 
 ## Folder Structure
 
-This archive contains the following folders:
+The repository contains the following folders:
 
 docs<br>
 src<br>      |-------born_again_dp<br>     |-------resources<br>
@@ -36,13 +38,15 @@ src<br>      |-------born_again_dp<br>     |-------resources<br>
 The code, located in `src\born_again_dp`, can be built by simply calling the <em>make</em> command.
 This requires the availability of the g++ compiler.<br> 
 
+![Getting Started GIF](docs/Getting-Started.gif)
+
 By default, the simple makefile provided in this project does not link with CPLEX to facilitate installation and portability.
 As a consequence, the call to the MIP solver to prove faithfulness of a region in the heuristic BA-tree is deactivated (USING_CPLEX = false).
-An example of makefile which links to CPLEX is provided in "makefile-withCPLEX", it requires an active CPLEX installation and a proper definition of the library paths to be used.
+To compile with CPLEX and guarantee faithfulness in the heuristic, make sure that CPLEX is installed in your system, adapt the makefile with the correct library path, and run the command "make withCPLEX=1".
 
 ### Using the C++ algorithm
 
-Once compiled, the executable can be directly run on any input file representing a tree ensemble with the following command line:
+After compilation, the executable can be directly run on any input file representing a tree ensemble with the following command line:
 
 ```
 Usage:
@@ -56,10 +60,11 @@ Examples: <br>
 `./bornAgain ../resources/forests/FICO/FICO.RF1.txt my_output_file`<br>
 `./bornAgain ../resources/forests/COMPAS-ProPublica/COMPAS-ProPublica.RF7.txt my_output_file -trees 4 -obj 2`
 
-### Using the Jupyter Example
+### Running the Jupyter Example
 
-The `docs` folder contains a jupyter notebook called illustrative_example.ipynb. This notebook contains a working example of the code pipeline, including some visualization and evaluation scripts.
+The "docs" folder contains a jupyter notebook called illustrative_example.ipynb. This notebook contains a working example of the code pipeline, including some visualization and evaluation scripts.
 
+![Getting Started GIF](docs/Notebook.gif)
 
 ## Contributing
 
@@ -77,4 +82,4 @@ Contributors to this code:
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2020 © Thibaut Vidal, Toni Pacheco, Maximilian Schiffer
+- Copyright 2020 © Thibaut Vidal, Toni Pacheco and Maximilian Schiffer
